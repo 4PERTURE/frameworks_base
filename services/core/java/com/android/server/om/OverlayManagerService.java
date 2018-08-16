@@ -577,7 +577,6 @@ public final class OverlayManagerService extends SystemService {
                 int userId) throws RemoteException {
             try {
                 traceBegin(TRACE_TAG_RRO, "OMS#setEnabled " + packageName + " " + enable);
-                enforceChangeOverlayPackagesPermission("setEnabled");
                 userId = handleIncomingUser(userId, "setEnabled");
                 if (packageName == null) {
                     return false;
@@ -601,7 +600,6 @@ public final class OverlayManagerService extends SystemService {
                 int userId) throws RemoteException {
             try {
                 traceBegin(TRACE_TAG_RRO, "OMS#setEnabledExclusive " + packageName + " " + enable);
-                enforceChangeOverlayPackagesPermission("setEnabledExclusive");
                 userId = handleIncomingUser(userId, "setEnabledExclusive");
                 if (packageName == null || !enable) {
                     return false;

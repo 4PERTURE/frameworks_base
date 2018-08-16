@@ -60,6 +60,7 @@ public:
     static const char* RESOURCES_FILENAME;
     static const char* IDMAP_BIN;
     static const char* VENDOR_OVERLAY_DIR;
+    static const char* THEME_OVERLAY_DIR;
     static const char* PRODUCT_OVERLAY_DIR;
     static const char* PRODUCT_SERVICES_OVERLAY_DIR;
     static const char* ODM_OVERLAY_DIR;
