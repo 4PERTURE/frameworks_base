@@ -17,6 +17,7 @@
 package com.android.systemui.statusbar.phone;
 
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
 
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_HOME_DISABLED;
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_NOTIFICATION_PANEL_EXPANDED;
@@ -654,9 +655,6 @@ public class NavigationBarView extends FrameLayout implements
         } else if (pinningActive) {
             disableBack = disableRecent = false;
         }
-        if (pinningActive && isGesturalMode(mNavBarMode)){
-            disableBack = true;
-        }
 
         ViewGroup navButtons = getCurrentView().findViewById(R.id.nav_buttons);
         if (navButtons != null) {
@@ -966,7 +964,8 @@ public class NavigationBarView extends FrameLayout implements
     }
 
     public void showPinningEscapeToast() {
-        mScreenPinningNotify.showEscapeToast(isRecentsButtonVisible(), isGesturalMode(mNavBarMode));
+        mScreenPinningNotify.showEscapeToast(
+                mNavBarMode == NAV_BAR_MODE_GESTURAL, isRecentsButtonVisible());
     }
 
     public boolean isVertical() {

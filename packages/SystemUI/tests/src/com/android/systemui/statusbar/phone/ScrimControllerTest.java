@@ -232,11 +232,11 @@ public class ScrimControllerTest extends SysuiTestCase {
         // Pulse callback should have been invoked
         assertScrimVisibility(VISIBILITY_FULLY_TRANSPARENT, VISIBILITY_FULLY_OPAQUE);
         assertScrimTint(mScrimBehind, true /* tinted */);
-        assertScrimTint(mScrimInFront, true /* tinted */);
 
         mScrimController.setWakeLockScreenSensorActive(true);
         mScrimController.finishAnimationsImmediately();
-        assertScrimVisibility(VISIBILITY_FULLY_TRANSPARENT, VISIBILITY_SEMI_TRANSPARENT);
+        assertScrimVisibility(VISIBILITY_SEMI_TRANSPARENT /* front */,
+                VISIBILITY_SEMI_TRANSPARENT /* back */);
     }
 
     @Test
